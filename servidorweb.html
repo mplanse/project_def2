@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<link rel="icon" type="image/x-icon" href="imagenes\descarga.png">
+<link rel="stylesheet" href="css labdoo.css">
+
+<div class="cabecera">
+    <img src="imagenes\1554769860267-removebg-preview.png" height="50px" width="50px">
+    <img src="imagenes\labdoo_fullglobe_png-removebg-preview.png" height="50px" width="50px" >
+    <li><a href="indice compartir.html"><h1 id="labdoofase2">Labdoo (Fase 2)</h1></a>
+</div>
+
+<nav>
+  <ul>
+  
+    <li><a href="">Reto 5 </a>
+    <ul>
+        <li><a href="../web proyecto/reto5dhcp.html">DHCP</a></li>
+    </ul> 
+    </li>
+    <li><a href="">Reto 6 </a>
+      <ul>
+          <li><a href="../web proyecto/reto6dns.html">DNS</a></li>
+      </ul> 
+      </li>
+    <li><a href="">Reto 7 </a>
+    <ul>
+        <li><a href="../web proyecto/servidorweb.html">SERVIDOR WEB</a></li>
+    </ul> 
+    </li>
+    <li><a href="">Reto 8 </a>
+      <ul>
+        <li><a href="../web proyecto/firewall1def.html">FIREWALL</a></li>
+      </ul> 
+      </li>
+    <li><a href="">Reto 9 </a>
+      <ul>
+        <li><a href="../web proyecto/reto9proxy.html">Proxy</a></li>
+      </ul> 
+      </li>
+    <li><a href="">Reto 10 </a>
+      <ul>
+        <li><a href="../web proyecto/barroso.html.PROYECTO.html">Copias de seguridad</a></li>
+      </ul> 
+      </li>
+    <li><a href="">Formulari </a>
+      <ul>
+        <li><a href="../web proyecto/formuraiu.html">Formulari</a></li>
+      </ul> 
+      </li>
+    
+    <li><a href="">Pressupost </a>
+      <ul>
+        <li><a href="../web proyecto/tabla presupuesto.html">Pressupost</a></li>
+      </ul> 
+      </li>
+
+      <li><a href="">Packet tracer </a>
+        <ul>
+          <li><a href="../web proyecto/packet tracer.html">Packet tracer</a></li>
+        </ul> 
+        </li>
+
+  </div>
+  </nav>
+
+<br>
+
+
+<body>
+	<h1 class="tituloprincipal">Documentacion de la instalacion del Servidor Web en Ubuntu Server</h1>
+	<p class="textonormal">En este apartado de la pagina os enseñaremos la documentacion del proceso de instalacion del Servidor Web en Ubuntu Server</p>
+	<h2 class="titulopasos">Paso 1:Primero de todo hemos de usar estos comandos sudo apt update
+        sudo apt install apache2 para instalar apache2</h2>
+	<p class="codigo"></p>
+	<h3 class="codigoreto5"></h3>
+	<h2 class="titulopasos">Paso 2: La configuración de host virtual de Apache predeterminada www.example.comy configuraremos la nuestra en Html.example.cat, Entonces comenzamos creando una carpeta para nuestro nuevo sitio web /var/www/ejecutando.Y luego ponemos para finalizar el comando sudo mkdir /var/www/gci/</h2>
+	<h2 class="titulopasos">Paso 3:  Vamos a nuestro directorio recién creado y creemos uno escribiendo:</h2>
+	<p class="codigo">cd /var/www/gci >
+    <h2 class="titulopasos">Paso 4: Comenzamos este paso yendo al directorio de archivos de configuración:
+      </h2>
+	<p class="textonormal">Pegamos este comando cd /etc/apache2/sites-available/ para seguir con la instalacion .</p>
+	<h3 class="codigo">Ahora editamos  el archivo de configuraciónl:sudo nano gci.conf
+        <h3>
+	<h2 class="titulopasos">Paso 5: El archivo predeterminado no viene con una ServerNamedirectiva, por lo que tendremos que agregarlo y definirlo agregando esta línea debajo de la última directiva:</p>
+    <p class="textonormal">Esto garantiza que las personas lleguen al sitio correcto en lugar del predeterminado cuando escriben gci.example.cat.</p>
+	<p class="codigo">sudo cp /etc/b9ind/db.local /etc/biind/db.midominio.local</p>
+    <h2 class="titulopasos">Paso 6: Después de configurar nuestro sitio web, debemos activar el archivo de configuración de hosts virtuales para habilitarlo. Lo hacemos ejecutando el siguiente comando en el directorio del archivo de configuración: sudo a2ensite gci.conf</p>
+    <p class="textonormal">.</p>
+	<p class="codigo">sudo a2ensite gci.conf</p>
+    <h2 class="titulopasos">Paso 7:En el ultimo paso si se a hecho todo bien debereiamos ver lo siguiente  </p>
+	<h2 class="preto5"></h2>
+	<p class="codigo">service apache2 reload
+        root@ubuntu-server:/etc/apache2/sites-available#</p>
+   

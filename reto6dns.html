@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<link rel="icon" type="image/x-icon" href="imagenes\descarga.png">
+<link rel="stylesheet" href="css labdoo.css">
+
+<div class="cabecera">
+    <img src="imagenes\1554769860267-removebg-preview.png" height="50px" width="50px">
+    <img src="imagenes\labdoo_fullglobe_png-removebg-preview.png" height="50px" width="50px" >
+    <li><a href="indice compartir.html"><h1 id="labdoofase2">Labdoo (Fase 2)</h1></a>
+</div>
+<nav>
+    <ul>
+    
+      <li><a href="">Reto 5 </a>
+      <ul>
+          <li><a href="../web proyecto/reto5dhcp.html">DHCP</a></li>
+      </ul> 
+      </li>
+      <li><a href="">Reto 6 </a>
+        <ul>
+            <li><a href="../web proyecto/reto6dns.html">DNS</a></li>
+        </ul> 
+        </li>
+      <li><a href="">Reto 7 </a>
+      <ul>
+          <li><a href="../web proyecto/servidorweb.html">SERVIDOR WEB</a></li>
+      </ul> 
+      </li>
+      <li><a href="">Reto 8 </a>
+        <ul>
+          <li><a href="../web proyecto/firewall1def.html">FIREWALL</a></li>
+        </ul> 
+        </li>
+      <li><a href="">Reto 9 </a>
+        <ul>
+          <li><a href="../web proyecto/reto9proxy.html">Proxy</a></li>
+        </ul> 
+        </li>
+      <li><a href="">Reto 10 </a>
+        <ul>
+          <li><a href="../web proyecto/barroso.html.PROYECTO.html">Copias de seguridad</a></li>
+        </ul> 
+        </li>
+      <li><a href="">Formulari </a>
+        <ul>
+          <li><a href="../web proyecto/formuraiu.html">Formulari</a></li>
+        </ul> 
+        </li>
+      
+      <li><a href="">Pressupost </a>
+        <ul>
+          <li><a href="../web proyecto/tabla presupuesto.html">Pressupost</a></li>
+        </ul> 
+        </li>
+  
+        <li><a href="">Packet tracer </a>
+          <ul>
+            <li><a href="../web proyecto/packet tracer.html">Packet tracer</a></li>
+          </ul> 
+          </li>
+  
+    </div>
+    </nav>
+  
+<br>
+
+
+<body>
+	<h1 class="tituloprincipal">Documentacion de la instalacion de DNS en Ubuntu Server</h1>
+	<p class="textonormal">En este apartado de la pagina os enseñaremos la documentacion del proceso de instalacion del DNS en Ubuntu Server</p>
+	<h2 class="titulopasos">Paso 1: Actualizaremos los paquetes del sistema Ubuntu Server 20.04</h2>
+	<p class="codigo">sudo apt update</p>
+	<h3 class="codigoreto5"></h3>
+    <img class="foto" src="captura1dns.PNG" alt="imagensudoapt">
+	<h2 class="titulopasos">Paso 2: Procedemos a instalar, con permisos de superusuario, los paquetes necesarios mediante apt. Dichos paquetes son bind9 y bind9utils</h2>
+	<p class="codigo">sudo apt install bind9 bind9utils</p>
+    <img class="foto" src="../web proyecto/captura2dns.PNG">
+	<p class="preto5"></p>
+	<h2 class="titulopasos">Paso 3: El primer fichero que vamos a editar será /etc/bind/named.conf.local. 
+    <p class="textonormal">En él definiremos las zonas, directa e inversa, para el dominio midominio.local haciendo uso de la clausula zone. Cada bloque de zona incluirá de que tipo será la zona y el fichero en el que estarán definidas, para cada zona, las características, propiedades y entidades del dominio.</p>
+    </p>
+	<p class="codigo">/etc/bind/named.conf.local</p>
+    <img class="foto" src="Capturadns3.PNG" alt="imagendhcpdconf">
+    <h2 class="titulopasos">Paso 4: Una vez definidas las zonas, vamos a comprobar que la configuración sea correcta y no hayamos cometido errores en la sintaxis del fichero. Usaremos el comando named-checkconf. </h2>
+	<p class="textonormal">Si tras lanzar el comando no nos devuelve nada, significará que no se han encontrado errores.</p>
+	<h3 class="codigo">sudo named-checkconf /etc/bind/named.conf.local<h3>
+    <img class="foto" src="Capturadns4.PNG" alt="imagensystemctlrestart">
+	<h2 class="titulopasos">Paso 5: Ahora vamos a crear los ficheros de zona que hemos indicado anteriormente en la configuración.</p>
+    <p class="textonormal">Para su creación vamos a tomar como plantillas ficheros de zonas que se crean al instalar el paquete bind9 y los editaremos. Para la zona directa crearemos el fichero /etc/bind/db.midominio.local.</p>
+	<p class="codigo">sudo cp /etc/b9ind/db.local /etc/biind/db.midominio.local</p>
+    <img class="foto" src="captura5dns.PNG" alt="imagendhcpdconf">
+    <h2 class="titulopasos">Paso 6: Una vez creado el fichero lo editaremos y cambiaremos/añadiremos el nombre del dominio y las entidades  por las nuestras</p>
+    <p class="textonormal">También debemos cambiar la cláusula Serial cada vez que editemos nuestros ficheros de zona, esto es una forma de llevar un control de versiones. En mi caso le añado una numeración del tipo YYMMDDVV (año mes día versión).</p>
+	<p class="codigo">/etc/bind/db.midominio.local</p>
+    <img class="foto" src="capturadns6.PNG" alt="imagendhcpdconf">
+    <h2 class="titulopasos">Paso 7: Como hemos hecho anteriormente para el fichero de zona directa, haremos lo mismo para crear el fichero de zona inversa. </p>
+	<h2 class="preto5"></h2>
+	<p class="codigo">sudo cp /etc/bind/db.127 /etc/bind/db.10.168.192</p>
+    <img class="foto" src="capturadns7.PNG" alt="imagendhcpdconf">
+    <h2 class="titulopasos">Paso 8: Una vez creado el fichero lo editaremos y cambiaremos/añadiremos el nombre del dominio y las entidades  por las nuestras. No olvidemos modificar el Serial.</p>
+	<h2 class="preto5"></h2>
+	<p class="codigo">/etc/bind/db.10.168.192</p>
+    <img class="foto" src="capturadns8.PNG" alt="imagendhcpdconf">
+    <h2 class="titulopasos">Paso 9: Lo siguiente que haremos será comprobar que la configuración de los ficheros de zonas la hemos realizado correctamente y no hayamos cometido errores en la sintaxis del fichero.</p>
+    <p class="textonormal">El comando que vamos a usar para comprobar los ficheros de zonas es named-checkzone seguido del nombre de la zona y del fichero en cuestión. Sabremos que todo está correctamente configurado si obtenemos un OK como respuesta.</p>
+	<p class="codigo">sudo named-checkzone midominio.local /etc/bind/db.milocal.local</p>
+    <img class="foto" src="capturadns9.PNG" alt="imagendhcpdconf">
+    <h2 class="titulopasos">Paso 10: El siguiente paso será editar el fichero /etc/bind/named.conf.options donde crearemos una lista de acceso para restringir quien puede realizar las consultas a nuestro servidor DNS e indicaremos un par de servidores forwarders donde delegará nuestro servidor DNS local cuando no pueda resolver alguna consulta.  </p>
+	<h2 class="preto5"></h2>
+	<p class="codigo">/etc/bind/named.conf.options</p>
+    <img class="foto" src="capturadns10.PNG" alt="imagendhcpdconf">
+    <h2 class="titulopasos">Paso 11: Antes de poner nuestro servicio en marcha vamos a modificar el fichero /etc/default/named donde especificaremos un argumento para el usuario bind. </p>
+    <p class="textonormal">Este usuario se crea automáticamente al realizar la instalación del servicio bind9. El argumento a indicar es -4, con él forzamos el uso de IPv4 siempre y así evitaremos mensajes de error de red inalcanzable por direccionamiento IPv6.</p>
+	<p class="codigo">/etc/default/named</p>
+    <img class="foto" src="capturadns11.PNG" alt="imagendhcpdconf">
+    <h2 class="titulopasos">Paso 12: Después de esto ya tendremos configurado nuestro servidor DNS como queremos. </p>
+    <p class="textonormal">Solo queda reiniciar el servicio bind9 y comprobar que esté corriendo correctamente.  </p>
+	<p class="codigo">sudo service bind9 restard + sudo service bind9 status</p>
+    <img class="foto" src="capturadns12.PNG" alt="imagendhcpdconf">
+    <h2 class="titulopasos">Paso 13: Seguidamente, editaremos la configuración de red de nuestro Ubuntu Server para indicarle que él mismo, es el servidor DNS que tendrá que consultar para la resolución de nombres.  </p>
+	<h2 class="textonormal">Como ya sabemos, en Ubuntu Server 20.04 se hace uso de netplan.  </h2>
+	<p class="codigo">/etc/netplan/00-installer-config.yaml</p>
+    <img class="foto" src="capturadns13.PNG" alt="imagendhcpdconf">
+    <h2 class="titulopasos">Paso 14:  Una vez editada la configuración de red, lanzamos la instrucción sudo netplan apply para que los cambios surtan efecto. </p>
+	<h2 class="preto5"></h2>
+	<p class="codigo">sudo netplan apply</p>
+    <img class="foto" src="capturadns14.PNG" alt="imagendhcpdconf">
+    <h2 class="titulopasos">Paso 15: Vamos a realizar un par de pruebas con nslookup para comprobar si el servidor DNS está resolviendo correctamente los nombres y las IPs.</p>
+	<h2 class="preto5"></h2>
+	<p class="codigo">nslookup pc01 + nslookup pc02 + nslookup google.es   </p>
+    <img class="foto" src="capturadns15.PNG" alt="imagendhcpdconf">
+    <h2 class="titulopasos">Paso 16: Si consultamos el fichero /etc/resolv.conf donde debería aparecer como nameserver la IP de nuestro servidor (localhost), veremos que nos aparece la dirección de loopback 127.0.0.53 la cual nosotros no hemos indicado en el fichero de configuración de la red. Además, si le hacemos un ls -l, podemos observar que se trata de un enlace simbólico a otro fichero de configuración. </p>
+	<h2 class="preto5"></h2>
+	<p class="codigo"> cat /etc/resolv.conf   </p>
+    <img class="foto" src="capturadns16.PNG" alt="imagendhcpdconf">
+    <h2 class="titulopasos">Paso 17: Para que todo funcione como antes de systemd y las aplicaciones consulten nuestro resolver directamente, debemos cambiar el enlace simbólico de /etc/resolv.conf y apuntarlo al siguiente fichero /run/systemd/resolve/resolv.conf</p>
+	<h2 class="preto5"></h2>
+	<p class="codigo"> ls -l /etc/resolv.conf + sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf </p>
+    <img class="foto" src="capturadns17.PNG" alt="imagendhcpdconf">
+    <h2 class="titulopasos">Paso 18: Una vez modificado el enlace simbólico vamos a comprobar el nuevo contenido de /etc/resolv.conf y veremos como, ahora si, aparece como nameserver la IP de nuestro servidor. </p>
+	<h2 class="preto5"></h2>
+	<p class="codigo"> cat /etc/resolv.conf </p>
+    <img class="foto" src="capturadns18.PNG" alt="imagendhcpdconf">
+    <h2 class="titulopasos">Paso 19: Y por último, ahora si que si, vamos a realizar las mismas pruebas con nslookup que realizamos anteriormente y comprobaremos el resultado de las consultas. </p>
+	<h2 class="preto5"></h2>
+	<p class="codigo"> nslookup pc01 + nslookup pc02 + nslookup google.es </p>
+    <img class="foto" src="capturadns19.PNG" alt="imagendhcpdconf">
+    <h2 class="titulopasos">Paso 20: Comprobar estos ultimos comandos, si esta bien hecho mostrara esta linea de codigo </p>
+	<p class="textonormal">Lo deberas hacer con las ip's correspondientes esto es un ejemplo</h2>
+	<p class="codigo"> nslookup 192.168.10.21 + nslookup 192.168.10.22 + nslookup 192.168.10.10 + nslookup 8.8.8.8</h3> </p>
+    <img class="foto" src="capturadns20.PNG" alt="imagendhcpdconf">
+</body> 
+</html>

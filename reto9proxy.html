@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>HTML</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!--<link rel="stylesheet" href="estilo.css">--> 
+  <link rel="stylesheet" href="css labdoo.css">
+</head>
+<div class="cabecera">
+  <img src="imagenes\1554769860267-removebg-preview.png" height="50px" width="50px">
+  <img src="imagenes\labdoo_fullglobe_png-removebg-preview.png" height="50px" width="50px" >
+  <li><a href="indice compartir.html"><h1 id="labdoofase2">Labdoo (Fase 2)</h1></a>
+</div>
+
+<nav>
+  <ul>
+  
+    <li><a href="">Reto 5 </a>
+    <ul>
+        <li><a href="../web proyecto/reto5dhcp.html">DHCP</a></li>
+    </ul> 
+    </li>
+    <li><a href="">Reto 6 </a>
+      <ul>
+          <li><a href="../web proyecto/reto6dns.html">DNS</a></li>
+      </ul> 
+      </li>
+    <li><a href="">Reto 7 </a>
+    <ul>
+        <li><a href="../web proyecto/servidorweb.html">SERVIDOR WEB</a></li>
+    </ul> 
+    </li>
+    <li><a href="">Reto 8 </a>
+      <ul>
+        <li><a href="../web proyecto/firewall1def.html">FIREWALL</a></li>
+      </ul> 
+      </li>
+    <li><a href="">Reto 9 </a>
+      <ul>
+        <li><a href="../web proyecto/reto9proxy.html">Proxy</a></li>
+      </ul> 
+      </li>
+    <li><a href="">Reto 10 </a>
+      <ul>
+        <li><a href="../web proyecto/barroso.html.PROYECTO.html">Copias de seguridad</a></li>
+      </ul> 
+      </li>
+    <li><a href="">Formulari </a>
+      <ul>
+        <li><a href="../web proyecto/formuraiu.html">Formulari</a></li>
+      </ul> 
+      </li>
+    
+    <li><a href="">Pressupost </a>
+      <ul>
+        <li><a href="../web proyecto/tabla presupuesto.html">Pressupost</a></li>
+      </ul> 
+      </li>
+
+      <li><a href="">Packet tracer </a>
+        <ul>
+          <li><a href="../web proyecto/packet tracer.html">Packet tracer</a></li>
+        </ul> 
+        </li>
+
+  </div>
+  </nav>
+
+
+<br>
+
+
+<body>
+	<h1 class="tituloprincipal">Documentacion de la implementacion de un servidor Proxy</h1>
+	<p class="textonormal">En este apartado de la pagina os enseñaremos la documentacion del proceso de implementacion de Servidor Proxy</p>
+	<h2 class="titulopasos">Paso 1: Actualizaremos los paquetes del sistema Ubuntu Server</h2>
+	<p class="textonormal">Antes de empezar a instalar cualquier tipo de paquetes en Ubuntu Server debemos asegurarnos de que todos los paquetes del sistema esten actualizados para asegurar que todo funciona correctamente. Para ello ejecutaremos el comando:</p>
+	<h3 class="codigo">sudo apt-get update</h3>
+    <img class="foto" src="sudoaptgetupdate.PNG" alt="imagensudoapt">
+	<h2 class="titulopasos">Paso 2: Instalaremos el paquete de Squid</h2>
+	<p class="textonormal">Una vez actualizados todos los archivos del sistema operativo, ejecutaremos este comando para instalar los paquetes relacionados con Squid en Ubuntu Server</p>
+	<h3 class="codigo">sudo apt-get -y install Squid</h3>
+    <img class="foto" src="squiiiiiiiiid 1.PNG" alt="squiiiiiiiiid 1">
+	<p class="textonormal">Este comando instalará el paquete del servidor Squid en el sistema.</p>
+	<h2 class="titulopasos">Paso 3: Automatiza el Paquete y sus funciones. </h2>
+	<p class="textonormal">Una vez que se complete la instalación, debemos escribir el comando systemctl enable Squid.</p>
+	<p class="textonormal">Este comando permite a Squid el poder funcionar automaticamente cada vez que el equipo se encienda, haciendolo mas practico al no necesitar de activar se cada vez que el equipo se encienda</p>
+    <img class="foto" src="squid 2.PNG" alt="squid 2">
+    <h2 class="titulopasos">Paso 4: Configura el archivo /etc/Squid/whitelist</h2>
+	<p class="textonormal">En el archivo /etc/Squid/whitelist, pondremos nuestra IP, y habremos de recargar el servicio con el comando:</p>
+	<h3 class="codigo">curl ifconfig.me >> /etc/squid/whitelist service squid restart<h3>
+    <img class="foto" src="squid 3.PNG" alt="squid 3">
+  <p class="textonormal">Este comando reiniciará el servicio Squid en el sistema.</p>
+  <h2 class="titulopasos">Paso 5: Descargar paquetes para uso contraseñas de usuario Proxy</h2>
+	<p class="textonormal">Descargaremos el paquete de apache2-utils para configurar las contraseñas de usuario en el servidor proxy</p>
+	<h3 class="codigo">apt-get install apache2-utils -y</h3>
+  <h2 class="titulopasos">Paso 6: Configuracion de miembros de Squid</h2>
+	<p class="textonormal">El paquete de Utility preguntara por una contraseña, la crearemos y nos tendremos que acordar.</p>
+  <h2 class="titulopasos">Paso 7: Integrar mecanismo de seguridad con Squid</h2>
+	<p class="textonormal">Integramos un mecanismo de seguridad con Squid Daemon, edita el archivo config con los comandos:</p>
+	<h3 class="codigo">auth_param basic program /usr/lib/squid3/basic_ncsa_auth /etc/squid/pswds 
+    auth_param basic realm proxy
+    acl authenticated proxy_auth REQUIRED
+    http_access allow authenticated</h3>
+  <h2 class="titulopasos">Paso 8: Prueba final</h2>
+	<p class="textonormal">Para comprobar de que la instalacion ha ido bien escribiremos el siguiente comando:</p>
+	<h3 class="codigo">curl -v -x http://nombre de usuario:contraseña Direccion IP:puerto https://google.com</h3>
+	<h2 class="titulopasos">Conclusión</h2>
+	<p class="textonormal">En esta documentacion, te hemos mostrado cómo nuestro grupo ha conseguido instalar el servicio Squid y como configurar lo correctamente en un servidor Ubuntu. Ahora puedes usar el servicio Squid según tus necesidades.</p>
+
+</body> 
+</html>

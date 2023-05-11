@@ -1,0 +1,194 @@
+
+
+.cabecera {
+    background-color: #333;
+    color: #fff; 
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 0; 
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  p {
+    font-size: 18px;
+    margin-bottom: 0; 
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+
+
+
+
+
+  
+  nav {
+    background-color: #333;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+  }
+  
+  nav li:hover ul {
+    display: block;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+  }
+  
+  nav ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #555;
+  }
+  
+  nav ul ul li {
+    display: block;
+    width: 200px;
+  }
+  
+  nav ul ul a {
+    padding: 8px 10px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  nav ul ul a:hover {
+    background-color: #333;
+  }
+  
+   
+  
+
+
+
+
+  table {
+    border-collapse: collapse; 
+    width: 100%; 
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px; 
+    text-align: left; 
+  }
+  
+  th {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2; 
+  }
+  
+  iframe {
+    display: block; /* hacemos que el iframe sea un elemento de bloque */
+    margin: 0 auto; /* centramos el iframe horizontalmente */
+    max-width: 100%; /* hacemos que el iframe se ajuste al ancho del contenedor */
+  }
+
+  #titulopagina{
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(40, 40, 40);
+    color: whitesmoke;
+}
+.textogeneral{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+    color:rgb(14, 14, 14);
+}
+
+.textogeneraltabla{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+    color:rgb(14, 14, 14);
+    margin-top: 0px;
+}
+
+.tituloprincipal{
+  font-size: 32px;
+  font-family:Arial, Helvetica, sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  color: #0e0e0e;
+}
+
+.textonormal{
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.codigo{
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+}
+
+.titulopasos{
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.foto{
+  max-width: 100%;
+  height: auto;
+}
+
+.textoform{
+  font-size: 18px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-9f38{border-color:inherit;color:#3531ff;text-align:left;text-decoration:underline;vertical-align:top}
+
+table {
+  width: 100%;
+  height: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+button {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>HTML</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!--<link rel="stylesheet" href="estilo.css">--> 
+<link rel="stylesheet" href="css labdoo.css">
+</head>
+<div class="cabecera">
+  <img src="imagenes\1554769860267-removebg-preview.png" height="50px" width="50px">
+  <img src="imagenes\labdoo_fullglobe_png-removebg-preview.png" height="50px" width="50px" >
+  <li><a href="indice compartir.html"><h1 id="labdoofase2">Labdoo (Fase 2)</h1></a>
+</div>
+
+<nav>
+  <ul>
+  
+    <li><a href="">Reto 5 </a>
+    <ul>
+        <li><a href="../web proyecto/reto5dhcp.html">DHCP</a></li>
+    </ul> 
+    </li>
+    <li><a href="">Reto 6 </a>
+      <ul>
+          <li><a href="../web proyecto/reto6dns.html">DNS</a></li>
+      </ul> 
+      </li>
+    <li><a href="">Reto 7 </a>
+    <ul>
+        <li><a href="../web proyecto/servidorweb.html">SERVIDOR WEB</a></li>
+    </ul> 
+    </li>
+    <li><a href="">Reto 8 </a>
+      <ul>
+        <li><a href="../web proyecto/firewall1def.html">FIREWALL</a></li>
+      </ul> 
+      </li>
+    <li><a href="">Reto 9 </a>
+      <ul>
+        <li><a href="../web proyecto/reto9proxy.html">Proxy</a></li>
+      </ul> 
+      </li>
+    <li><a href="">Reto 10 </a>
+      <ul>
+        <li><a href="../web proyecto/barroso.html.PROYECTO.html">Copias de seguridad</a></li>
+      </ul> 
+      </li>
+    <li><a href="">Formulari </a>
+      <ul>
+        <li><a href="../web proyecto/formuraiu.html">Formulari</a></li>
+      </ul> 
+      </li>
+    
+    <li><a href="">Pressupost </a>
+      <ul>
+        <li><a href="../web proyecto/tabla presupuesto.html">Pressupost</a></li>
+      </ul> 
+      </li>
+
+      <li><a href="">Packet tracer </a>
+        <ul>
+          <li><a href="../web proyecto/packet tracer.html">Packet tracer</a></li>
+        </ul> 
+        </li>
+
+  </div>
+  </nav>
+
+<br>
+
+
+<body>
+	<h1 class="tituloprincipal">Documentacion de la instalacion de DHCP en Ubuntu Server</h1>
+	<p class="textonormal">En este apartado de la pagina os enseñaremos la documentacion del proceso de instalacion del DHCP en Ubuntu Server</p>
+	<h2 class="titulopasos">Paso 1: Actualizaremos los paquetes del sistema Ubuntu Server</h2>
+	<p class="textonormal">Antes de empezar a instalar cualquier tipo de paquetes en Ubuntu Server debemos asegurarnos de que todos los paquetes del sistema esten actualizados para asegurar que todo funciona correctamente. Para ello ejecutaremos el comando:</p>
+	<h3 class="codigo">sudo apt-get update</h3>
+    <img class="reto5dhcp" src="sudoaptgetupdate.PNG" alt="imagensudoapt">
+	<h2 class="titulopasos">Paso 2: Instalaremos el paquete del servidor DHCP</h2>
+	<p class="textonormal">Una vez actualizados todos los archivos del sistema operativo, ejecutaremos este comando para instalar los paquetes relacionados con el servidor dhcp de Ubuntu Server</p>
+	<h3 class="codigo">sudo apt-get install isc-dhcp-server</h3>
+    <img class="foto" src="isc-dhcp-server.PNG" alt="imageniscdhcp">
+	<p class="textonormal">Este comando instalará el paquete del servidor DHCP en el sistema.</p>
+	<h2 class="titulopasos">Paso 3: Modifica el archivo dhcpd.conf</h2>
+	<p class="textonormal">Una vez que se complete la instalación, debemos configurar el archivo dhcpd.conf. Este archivo se encuentra en la ruta /etc/dhcp/dhcpd.conf.</p>
+	<p class="textonormal">Abre el archivo dhcpd.conf usando sudo nano y configúralo según tus necesidades. En la siguiente imagen te mostramos la configuracion que hemos usado nosotros</p>
+    <img class="foto" src="dhcpd conf.PNG" alt="imagendhcpdconf">
+    <h2 class="titulopasos">Paso 4: Reinicia el servicio DHCP</h2>
+	<p class="textonormal">Después de configurar el archivo dhcpd.conf, debemos reiniciar el servicio DHCP para que los cambios surtan efecto. Ejecuta el siguiente comando para reiniciar el servicio DHCP:</p>
+	<h3 class="codigo">sudo systemctl restart isc-dhcp-server<h3>
+    <img class="foto" src="systemctl restart.PNG" alt="imagensystemctlrestart">
+	<p class="textonormal">Este comando reiniciará el servicio DHCP en el sistema.</p>
+	<h2 class="titulopasos">Conclusión</h2>
+	<p class="textonormal">En esta documentacion, te hemos mostrado cómo nuestro grupo ha conseguido instalar el servicio DHCP en un servidor Ubuntu. Ahora puedes configurar el servicio DHCP según tus necesidades y proporcionar direcciones IP a los dispositivos de tu red sin ningun problema</p>
+</body> 
+</html>

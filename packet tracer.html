@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<link rel="icon" type="image/x-icon" href="imagenes\descarga.png">
+<link rel="stylesheet" href="css labdoo.css">
+
+<div class="cabecera">
+    <img src="imagenes\1554769860267-removebg-preview.png" height="50px" width="50px">
+    <img src="imagenes\labdoo_fullglobe_png-removebg-preview.png" height="50px" width="50px" >
+    <li><a href="indice compartir.html"><h1 id="labdoofase2">Labdoo (Fase 2)</h1></a>
+</div>
+
+
+<nav>
+  <ul>
+  
+    <li><a href="">Reto 5 </a>
+    <ul>
+        <li><a href="../web proyecto/reto5prueba.html">DHCP</a></li>
+    </ul> 
+    </li>
+    <li><a href="">Reto 6</a>   
+         <ul>
+        <li><a href="../web proyecto/reto6dns.html">DNS</a></li>
+    </ul> 
+  </li>
+    <li><a href="">Reto 7</a>
+        <ul>
+        <li><a href="">Pagina Web</a>
+        </li>
+    </ul> </li>
+    <li><a href="">Reto 8</a>
+        <ul>
+        <li><a href="">Firewall</a>
+        </li>
+    </ul> </li>
+    <li><a href="">Reto 9 </a>
+      <ul>
+          <li><a href="../web proyecto/reto9.html">Proxy</a></li>
+      </ul> 
+      </li>
+    <li><a href="">Reto 10</a></li>  
+    <li><a href="../web proyecto/formuraiu.html">Formulari </a>  
+  </ul>
+  </div>
+  </nav>
+<br>
+
+
+<body>
+	<h1 class="tituloprincipal">Documentacion de la instalación de DHCP y DNS y implementacion de pagina web en Cisco packet tracer</h1>
+	<p class="textonormal">En este apartado de la pagina os enseñaremos la documentacion del proceso de instalacion del DHCP y DNS en Packet Tracer</p>
+	<h2 class="titulopasos">Paso 1: accedemos a nuestro servidor</h2>
+	<img class="foto" src="packet tracer 1.1.PNG">
+	<h2 class="titulopasos">Paso 2: Accedemos al apartado de servicios de nuestro servidor especificamente donde pone DHCP</h2>
+    <img class="foto" src="packet tracer 1.1.PNG">
+	<p class="preto5"></p>
+	<h2 class="titulopasos">Paso 3: Definimos las siguientes características del servicio en si</h2>
+    <p class="textonormal">Definiremos el Default Gateway, el servidor DNS, la IP por la que empieza el DHCP y el numero de clientes.</p>
+
+    <h2 class="titulopasos">Paso 4: Definimos el DNS. </h2>
+	<p class="textonormal">Vamos al apartado de DNS de los servicios de nuestro servidor y definimos cual serà su servidor DNS.</p>
+    <img class="foto" src="packet tracer 2.PNG" alt="imagensystemctlrestart">
+	<h2 class="titulopasos">Paso 5: Comprobamos que se ha configurado correctamente toda nuestra instalación.</h2>
+    <p class="textonormal">Para ello iremos a un ordenador cualquiera y lo pondremos para que su direccion IP sea en DHCP y ademas su servidor DNS deberia ser el definido por nosotros, si todo esta configurado correctamente.</p>
+    <img class="foto" src="packet tracer 3.PNG" alt="imagendhcpdconf">
+    <h2 class="titulopasos">Paso 6: Implementar pagina web</h2>
+    <p class="textonormal">Para implementar nuestra pagina web en el packet tracer, deberemos acceder al apartado de HTTP en nuestro servidor y importar nuestro html y carpetas.</p>
+    <img class="foto" src="packet tracer 4.PNG" alt="imagendhcpdconf">
+    <h2 class="titulopasos">Conclusion</h2>
+    <p class="textonormal">Asi entonces siguiendo estos pasos se puede hacer un circuito packet tracer con un DHCP y un DNS.</p>

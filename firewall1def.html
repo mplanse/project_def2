@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<link rel="icon" type="image/x-icon" href="imagenes\descarga.png">
+<link rel="stylesheet" href="css labdoo.css">
+
+<div class="cabecera">
+    <img src="imagenes\1554769860267-removebg-preview.png" height="50px" width="50px">
+    <img src="imagenes\labdoo_fullglobe_png-removebg-preview.png" height="50px" width="50px" >
+    <li><a href="indice compartir.html"><h1 id="labdoofase2">Labdoo (Fase 2)</h1></a>
+</div>
+
+
+<nav>
+  <ul>
+  
+    <li><a href="">Reto 5 </a>
+    <ul>
+        <li><a href="../web proyecto/reto5dhcp.html">DHCP</a></li>
+    </ul> 
+    </li>
+    <li><a href="">Reto 6 </a>
+      <ul>
+          <li><a href="../web proyecto/reto6dns.html">DNS</a></li>
+      </ul> 
+      </li>
+    <li><a href="">Reto 7 </a>
+    <ul>
+        <li><a href="../web proyecto/servidorweb.html">SERVIDOR WEB</a></li>
+    </ul> 
+    </li>
+    <li><a href="">Reto 8 </a>
+      <ul>
+        <li><a href="../web proyecto/firewall1def.html">FIREWALL</a></li>
+      </ul> 
+      </li>
+    <li><a href="">Reto 9 </a>
+      <ul>
+        <li><a href="../web proyecto/reto9proxy.html">Proxy</a></li>
+      </ul> 
+      </li>
+    <li><a href="">Reto 10 </a>
+      <ul>
+        <li><a href="../web proyecto/barroso.html.PROYECTO.html">Copias de seguridad</a></li>
+      </ul> 
+      </li>
+    <li><a href="">Formulari </a>
+      <ul>
+        <li><a href="../web proyecto/formuraiu.html">Formulari</a></li>
+      </ul> 
+      </li>
+    
+    <li><a href="">Pressupost </a>
+      <ul>
+        <li><a href="../web proyecto/tabla presupuesto.html">Pressupost</a></li>
+      </ul> 
+      </li>
+
+      <li><a href="">Packet tracer </a>
+        <ul>
+          <li><a href="../web proyecto/packet tracer.html">Packet tracer</a></li>
+        </ul> 
+        </li>
+
+  </div>
+  </nav>
+
+
+
+<br>
+
+
+<body>
+	<h1 class="tituloprincipal">Documentacion de la creación de un Firewall con iptables</h1>
+	<p class="textonormal">En este apartado de la pagina os vamos ha ensñar como nuestro equipo a logrado crear un firewall con unas normas predefinidas.</p>
+	<h2 class="titulopasos">Paso 1: Identificar que normas nos pedia el cliente.</h2>
+    	<p class="textonormal">Para saber como debemos hacer el firewall es obligatorio saber que quiere permitir y denegar el cliente</p>
+  	<h2 class="titulopasos">Paso 2: Procedemos a crear las normas </h2>
+      <p class="textonormal">Para cada regla mostraremos como lo hemos hecho para que haga efecto</p>
+      <h2 class="titulopasos">Norma 1: Permitir la navegacion web segura </h2>
+      <p class="textonormal">iptables -A INPUT -p tcp -m multiport --dports 80,443,3000,5000,22,21 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT</p>
+      <h2 class="titulopasos">Norma 2: Permitir conexion remota </h2>
+      <p class="textonormal">iptables -A INPUT -p udp --dport 53 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT</p>
+      <h2 class="titulopasos">Norma 3: Permitir conexion a DNS externos </h2>
+      <p class="textonormal">iptables -A OUTPUT -p tcp -m multiport --sports 80,443,3000,5000,22,21 -m conntrack --ctstate ESTABLISHED -j ACCEPT</p>
+      <h2 class="titulopasos">Norma 4: Permitir conexiones ftp</h2>
+      <p class="textonormal">iptables -A OUTPUT -p udp --sport 53 -m conntrack --ctstate ESTABLISHED -j ACCEPT</p>
+      <h2 class="titulopasos">Norma 5: Denegar el resto de conexiones</h2>
+      <p class="textonormal">iptables -A INPUT -j DROP
+        iptables -A OUTPUT -j DROP</p>
+
+   
+</body> 
+</html>
